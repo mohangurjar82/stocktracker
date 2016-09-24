@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "StockTracker" %></title>
     <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <%= stylesheet_link_tag "application", :media => "all" %>
 
@@ -37,14 +38,18 @@
     <![endif]-->
   </head>
   <body>
-    <%= render 'layouts/navigation'  %>
+    <%#= render 'layouts/navigation'  %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
+  
+
+
+
+    <!-- <div class="container"> -->
+     <!--  <div class="row">
+        <div class="col-lg-12">
+          <%#= bootstrap_flash %>
+        </div> -->
           <%= yield %>
-        </div>
         <!-- <div class="col-lg-3">
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
@@ -57,12 +62,48 @@
           </div><!--/.well -->
         </div><!--/span--> 
       </div><!--/row-->
+<div id="wrapper">
+    
+    <div id="footer"></div>
+  </div>
+         <footer>
+          <div class="line-separator"></div>
 
-      <footer>
-        <p>&copy; Company 2016</p>
-      </footer>
 
-    </div> <!-- /container -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Stock Tracker</strong>
+                    </h4>
+                    <p>3481 Planet Earth
+                        <br>Milkyway Galaxy</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (555) 555-5555</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">stocktracker.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+    <!-- </div> /container -->
 
   </body>
 </html>
