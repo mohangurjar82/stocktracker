@@ -43,10 +43,12 @@
 }
 .line-separator{
 
-height:1px;
+height:2px;
 
 background:#717171;
 
-border-bottom:1px solid #313030;
+border-bottom:1px solid #A9A9A9;
 
 }
+
+
