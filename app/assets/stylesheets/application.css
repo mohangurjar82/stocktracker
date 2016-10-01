@@ -51,4 +51,11 @@ border-bottom:1px solid #A9A9A9;
 
 }
 
+#footer {
+    position: relative;
+    margin-top: -150px;  /* negative value of footer height */
+    height: 150px;
+    clear: both;
+} 
+
 
