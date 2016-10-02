@@ -25,4 +25,6 @@ class Stock < ApplicationRecord
 		return "#{opening_price} (Opening)" if opening_price
 		'Unavailable'
 	end
+
+	
 end
