@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 	root 'welcome#index'
   
   resources :user_stocks, except: [:show, :edit, :update]
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+  	member do
+  		get 	:new_challenge
+  		post 	:new_challenge
+  	end
+  end
   resources :friendships
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	# root :to => "landingpage#index"  added yesterday
@@ -18,4 +23,5 @@ Rails.application.routes.draw do
 	get 'my_friends', to: 'users#my_friends'
 	get 'search_friends', to: "users#search"
 	post 'add_friend', to: "users#add_friend"
+	get 'challenges', to: "users#challenges"
 end

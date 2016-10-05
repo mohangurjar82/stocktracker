@@ -38,4 +38,18 @@ class UsersController < ApplicationController
 		@user_stocks = @user.stocks
 	end
 
+	def challenges
+		@challenges = current_user.user_challenges
+	end
+
+	def new_challenge
+		@user = User.find(params[:id])
+		if request.post?
+			if params["stock_ids"].present? && params["stock_ids"].count > 1
+				@challenge = current_user.user_challenges.create(challenger_id: @user.id )
+				params["stock_ids"].map{|c| @challenge.challenge_stocks.create(:stock_id => c ) }
+				redirect_to challenges_path				
+			end
+		end
+	end
 end

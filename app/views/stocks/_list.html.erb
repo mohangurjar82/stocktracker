@@ -10,10 +10,12 @@
 		</tr>
 	</thead>
 	<tbody>
+		<% total = 0 %>
 		<% @user_stocks.each do |user_stock| %>
 		<tr>
 			<td><%= user_stock.name %></td>
 			<td><%= user_stock.ticker %></td>
+			<% total += user_stock.price.to_f %>
 			<td>$<%= user_stock.price  %></td>
 			<% if @user.id == current_user.id %>
 			<td>
@@ -29,4 +31,4 @@
 
 </table>
 
-<center><h2>Total:</h2></center>
+<center><h2>Total: <%= total %></h2></center>

@@ -14,6 +14,7 @@
 		<tr>				
 			<th>Name</th>
 			<th>Email</th>
+			<th>challenge</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -22,6 +23,7 @@
 		<tr>
 			<td><%= friend.full_name %></td>
 			<td><%= friend.email %></td>
+			<td><%= link_to "challenge", new_challenge_user_path(friend.id), class:"btn btn-info btn-xs" %></td>
 			<td>
 				<%= link_to "View Profile", user_path(friend), class:"btn btn-primary btn-xs" %>
 				<%= link_to 'Remove Friend', friendship_path(friend), 
