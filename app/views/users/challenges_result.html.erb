@@ -1,0 +1,43 @@
+<div class="window-height">
+	<%= render 'layouts/navigation'  %>
+	<div class="container">
+		<div class="row">
+			<table class="table table-striped">
+				<tr>
+					<th colspan="3" class="page-header">
+						<h2>Reult</h2>
+					</th>
+				</tr>
+				<tr>				
+					<th>S.no</th>
+					<th>Name</th>
+					<th>Symbol</th>
+					<th>Old Price</th>
+					<th>Current Price $</th>
+					<th>Gain/loss</th>
+				</tr>
+				<% price = @challenge.stocks.map(&:price) %>
+				<% @challenge.challenge_stocks.each_with_index do |challenge_stock,i| %>
+					<tr>
+						<td><%= i+1 %></td>
+						<td><%= challenge_stock.stock.name %></td>
+						<td><%= challenge_stock.stock.ticker %></td>
+						<td>$<%= challenge_stock.last_price.to_f %></td>
+						<td>$<%= price[i] %></td>
+						<td></td>
+					</tr>
+				<% end %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Total</td>
+					<% old_price = @challenge.challenge_stocks.map(&:last_price).sum.round(2) %>
+					<% new_price  = price.map{|c| c.to_f }.sum.round(2) %>
+					<td><%= old_price %></td>
+					<td><%= new_price %></td>
+					<td><%= (new_price - old_price).round(2) %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
